@@ -1,0 +1,108 @@
+@import "src/assets/scss/variables";
+:host {
+    .container-fluid {
+        padding-left: 7rem;
+        padding-right: 7rem;
+        >.row {
+            margin-bottom: 30px;
+            &:first-child,
+            &:last-child {
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .toro-header {
+        margin-top: 20px;
+    }
+    h3 {
+        font-size: 1.25rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+    .mb-md-20 {
+        @media (max-width: 768px) {
+            margin-bottom: 20px;
+        }
+    }
+    .mb-md-30 {
+        @media (max-width: 768px) {
+            margin-bottom: 30px;
+        }
+    }
+    p.m-t {
+        margin-top: 3em;
+        margin-left: 15px;
+    }
+    span.f-40 {
+        font-size: 40px !important;
+        vertical-align: baseline !important;
+    }
+    span.v-align-top {
+        vertical-align: top !important;
+    }
+    .video-text {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .previous-disciplines {
+        height: 100%;
+        height: 300px;
+        overflow: auto;
+        &.loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .toro-discipline-list {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+    .toro-filter {
+        margin-top: 20px;
+    }
+    .toro-discipline {
+        cursor: pointer;
+    }
+    .faq-title {
+        margin-bottom: 20px;
+    }
+    .previous-years-title {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .m-t-30 {
+        margin-top: 30px;
+    }
+    .slider {
+        position: relative;
+        .slider-button-prev,
+        .slider-button-next {
+            z-index: 10;
+            position: absolute;
+            top: calc(50% - 15px);
+            transform: translateY(-50%);
+            background-color: map-get($toro-palette, 1);
+            transition: all 0.3s linear;
+            &.swiper-button-disabled {
+                cursor: default;
+                opacity: 0;
+            }
+        }
+        .slider-button-prev {
+            left: -20px;
+            @media (max-width: 576px) {
+                left: 10px;
+            }
+        }
+        .slider-button-next {
+            right: -20px;
+            @media (max-width: 576px) {
+                right: 10px;
+            }
+        }
+    }
+    .hide-link {
+        text-decoration: none;
+    }
+}

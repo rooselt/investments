@@ -1,0 +1,148 @@
+@import "src/assets/scss/variables";
+
+:host {
+  display: block;
+  width: 100%;
+  
+  & ::ng-deep {
+    div {
+      &.displayNone {
+        display: none;
+      }
+    }
+
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+
+      @media (max-width: 767px) {
+        padding: 10px 0;
+      }
+
+      @media (max-width: 479px) {
+        .order-by {
+          width: 100%;
+        }
+      }
+
+      &.reverse {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+
+        button {
+          width: 260px;
+          max-width: 100%;
+          margin: 5px auto 1px;
+        }
+      }
+
+      .header-wrap {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex: 1 1 auto;
+      }
+
+      .header-page {
+        display: flex;
+        align-items: center;
+
+        span {
+          font-size: 0.875rem;
+          margin-top: 5px;
+        }
+
+        .mat-form-field {
+          width: 70px;
+          margin-bottom: -1.25rem;
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+      }
+
+      .order-by {
+        margin-bottom: -1.25rem;
+
+        @media (min-width: 768px) {
+          width: 250px;
+        }
+      }
+    }
+
+    .content {
+      .noResults {
+        margin: 20px 0;
+
+        @media (min-width: 768px) {
+          margin: 20px 24px;
+        }
+      }
+
+      .wa-alert {
+        position: relative;
+        z-index: 99;
+      }
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      padding: 0 10px 0 24px;
+      border-radius: 4px;
+
+      @media only screen and (min-width: 768px) {
+
+        &.scroll {
+          background-color: transparent !important;
+          padding: 0 !important;
+
+          .buttons {
+            display: flex;
+            justify-content: center;
+
+            button {
+              width: 260px;
+              max-width: 100%;
+            }
+          }
+        }
+      }
+
+      @media only screen and (max-width: 767px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+
+        .loader-wrap {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          background: none !important;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        flex: 1 1;
+      }
+
+      .mat-paginator {
+        background-color: transparent;
+        font-size: 0.75rem;
+
+        &.disabled {
+          pointer-events: none;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}

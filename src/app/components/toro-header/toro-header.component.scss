@@ -1,0 +1,47 @@
+@import "src/assets/scss/variables";
+:host {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    background-color: map-get($custom-palette, 300);
+    color: map-get($toro-palette, 12);
+    padding: 17px 20px;
+    border-radius: 4px;
+    @media (max-width: 576px) {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .title {
+        margin-bottom: 0;
+        flex: 1 1;
+        font-size: 1.25rem;
+        @media (max-width: 576px) {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+    .bold {
+        font-weight: 900;
+    }
+    .badge-primary {
+        background-color: #1f073b !important;
+    }
+    .menu {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        @media (max-width: 576px) {
+            width: 100%;
+        }
+        .mat-icon-button {
+            margin-left: 4px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

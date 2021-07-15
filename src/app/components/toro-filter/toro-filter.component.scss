@@ -1,0 +1,34 @@
+@import "src/assets/scss/variables";
+:host {
+    display: block;
+    .form-filter {
+        display: flex;
+        @media (max-width: 576px) {
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        .mat-form-field {
+            flex: 1 1;
+             ::ng-deep .mat-form-field-wrapper {
+                padding-bottom: 0;
+                .mat-icon {
+                    color: rgba(map-get($toro-palette, 2), 0.6);
+                }
+            }
+            &:first-child {
+                margin-right: 10px;
+                @media (max-width: 576px) {
+                    margin-right: 0;
+                    margin-bottom: 5px;
+                }
+            }
+            &:last-child {
+                margin-left: 10px;
+                @media (max-width: 576px) {
+                    margin-left: 0;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}

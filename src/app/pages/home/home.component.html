@@ -1,0 +1,69 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <toro-header headerTitle="SALDO" [amount]="checkingAccountAmount" [price]="true">
+            </toro-header>
+        </div>
+        <div class="col-3">
+            <toro-header headerTitle="PATRIMONIO" [amount]="consolidated" [price]="true">
+            </toro-header>
+        </div>
+        <div class="col-3">
+            <toro-header headerTitle="ATIVOS" [amount]="quantity">
+            </toro-header>
+        </div>
+
+        <div class="col-3">
+            <toro-header headerTitle="AG: {{bank}} | CONTA: {{account}} | PIX: {{cpf}}" [amount]="amount">
+            </toro-header>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <toro-card bottomDetail class="card-disciplines">
+                <div class="row">
+                    <div class="col-12 col-md-12 d-flex align-items-stretch m-t-30" [ngClass]="{'loading' : loadingTrends}">
+                        <toro-alert icon="warning" type="warn" text="não existem registros para serem exibidos" [show]="alertTrends"></toro-alert>
+                        <toro-card-trends listTitle="Ativos Mais Negociados" [trendsList]="previousTrends" (onClick)="openModal($event,'custom-modal-1')" *ngIf="!alertTrends">
+                        </toro-card-trends>
+                    </div>
+                </div>
+            </toro-card>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <toro-card bottomDetail class="card-disciplines">
+                <p>Busque pelo código do ativo</p>
+
+                <div class="row">
+                    <div class="col-12 col-md-12 d-flex align-items-stretch">
+                        <toro-filter [trendlList]="trendlList" [clear]="clearFilters" (changeValue)="onFilterChange($event)"></toro-filter>
+                    </div>
+                    <div class="col-12 col-md-12 d-flex align-items-stretch m-t-30" [ngClass]="{'loading' : loadingPosition}">
+                        <toro-alert icon="warning" type="warn" text="não existem registros para serem exibidos" [show]="alertPosition"></toro-alert>
+                        <toro-card-list listTitle={{titleListAction}} [positionList]="previousPositionFiltered" *ngIf="!alertPosition">
+                        </toro-card-list>
+                    </div>
+                </div>
+            </toro-card>
+        </div>
+    </div>
+
+    <toro-modal id="custom-modal-1">
+        <h1>Quantidade de Ativos</h1>
+        <p>
+            <mat-form-field>
+                <mat-label>Digite a Quantidade</mat-label>
+                <input matInput (keyup)="onKey($event)">
+            </mat-form-field>
+        </p>
+        <button mat-raised-button color="secondary" (click)="closeModal('custom-modal-1');">Close</button>
+        <button mat-raised-button color="primary" (click)="onClickBuyTrends('custom-modal-1')">Ok</button>
+
+    </toro-modal>
+
+</div>

@@ -1,0 +1,55 @@
+/* MODAL STYLES
+-------------------------------*/
+
+toro-modal {
+    /* modals are hidden by default */
+    display: none;
+    .toro-modal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        margin: 0 auto !important;
+        float: none !important;
+        z-index: 1000;
+        width: 100%;
+        bottom: 0;
+        top: 0;
+        .toro-modal-body {
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            /* margin exposes part of the modal background */
+        }
+    }
+    .mat-secondary {
+        background-color: darkgray;
+        color: white;
+        float: left;
+    }
+    .mat-primary {
+        float: right;
+    }
+    .mat-success {
+        background-color: rgb(163, 160, 165) !important;
+        color: #fff;
+    }
+    .toro-modal-background {
+        /* modal background fixed across whole screen */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        /* semi-transparent black  */
+        background-color: #000;
+        opacity: 0.75;
+        /* z-index must be below .toro-modal and above everything else  */
+        z-index: 900;
+    }
+}
+
+body.toro-modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+}

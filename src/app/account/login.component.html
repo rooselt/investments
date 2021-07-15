@@ -1,0 +1,32 @@
+<div class="login-wrapper" ng-view>
+    <div class="login-container">
+        <div class="login-content">
+            <div class="text-center">
+                <a class="nav-item nav-link" href="/"><svg loading="lazy" alt="Logo Toro Investimentos" width="115" height="22" viewBox="0 0 115 22" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M29.3469 8.16812H36.0762V17.7861H36.1251C38.7823 17.7861 40.9366 15.6944 40.9366 13.114V8.16812H47.8529V4.1748H29.3469V8.16812Z" fill="#7d19ce"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M61.5652 13.7953H56.9401C55.3269 13.7953 53.933 12.5944 53.8576 11.0296C53.7776 9.36561 55.1486 7.98675 56.8454 7.98675H61.4703C63.0834 7.98675 64.4775 9.18792 64.5527 10.7525C64.6327 12.4169 63.2615 13.7953 61.5652 13.7953ZM62.707 3.99365H55.7013C51.7944 3.99365 48.598 7.09748 48.598 10.891C48.598 14.6846 51.7944 17.7886 55.7013 17.7886H62.707C66.6137 17.7886 69.8104 14.6846 69.8104 10.891C69.8104 7.09748 66.6137 3.99365 62.707 3.99365Z" fill="#7d19ce"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M106.388 13.7953H101.762C100.149 13.7953 98.7552 12.5944 98.6798 11.0296C98.5998 9.36561 99.9709 7.98675 101.668 7.98675H106.293C107.906 7.98675 109.3 9.18792 109.375 10.7525C109.455 12.4169 108.084 13.7953 106.388 13.7953ZM107.532 3.99365H100.526C96.6191 3.99365 93.4227 7.09748 93.4227 10.891C93.4227 14.6846 96.6191 17.7886 100.526 17.7886H107.532C111.439 17.7886 114.635 14.6846 114.635 10.891C114.635 7.09748 111.439 3.99365 107.532 3.99365Z" fill="#7d19ce"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M85.6115 9.0889C85.6115 9.78049 85.0285 10.3468 84.3159 10.3468H77.7596V7.80569H84.3159C85.0285 7.80569 85.6115 8.37174 85.6115 9.06375V9.0889ZM90.535 9.29578C90.535 7.93732 89.9633 6.70297 89.0401 5.80606C88.1183 4.91121 86.8469 4.35608 85.4481 4.35608H72.3405V12.0271V14.34V17.6067H77.574V14.34H83.107L85.0482 17.6067H90.535L88.1814 13.4559C89.5933 12.5752 90.535 11.037 90.535 9.29578Z" fill="#7d19ce"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M10.6553 21.711V16.2922C10.6553 16.2339 10.5873 16.2007 10.5389 16.2355C7.77071 18.2297 4.62015 20.0478 1.15561 21.6471C1.08556 21.6796 1.10933 21.7819 1.18703 21.7819H10.5822C10.6226 21.7819 10.6553 21.7499 10.6553 21.711Z" fill="#7d19ce"></path><mask id="mask0" masktype="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="22" height="15"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.06501V0H21.8831V14.13H0V7.06501Z" fill="#7d19ce"></path></mask><g mask="url(#mask0)"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.8696 0.111811C21.9038 0.0648115 21.869 -0.00012207 21.81 -0.00012207H7.54024C3.37601 -0.00012207 0 3.25089 0 7.26111V14.0589C0 14.1076 0.0492507 14.1418 0.0965908 14.1261C9.83082 10.9427 17.5817 5.97604 21.8696 0.111811Z" fill="#7d19ce"></path></g><path fill-rule="evenodd" clip-rule="evenodd" d="M14.5789 13.1278V21.711C14.5789 21.7499 14.6115 21.7817 14.6519 21.7817H14.8901C19.0541 21.7817 22.4299 18.5309 22.4299 14.5206V2C22.4299 1.92022 22.315 1.90126 22.2881 1.97671C20.8783 5.93333 18.2372 9.69165 14.6011 13.0769C14.5869 13.09 14.5789 13.1084 14.5789 13.1278Z" fill="#7d19ce"></path></svg></a>
+            </div>
+            <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button [disabled]="loading" class="btn btn-primary float-right">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1 float-right"></span>
+                    Login
+                </button>
+                    <a routerLink="../register" class="btn btn-link">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

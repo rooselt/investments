@@ -1,0 +1,14 @@
+<div class="container-painel" [@slide]>
+  <button mat-icon-button class="close-panel" (click)="closePanel()">
+    <mat-icon aria-label="Fechar">close</mat-icon>
+  </button>
+
+  <div class="panel-title">    
+      <p><strong>{{title}}</strong></p>    
+      <mat-divider></mat-divider>
+  </div>
+
+  <div class="panel-content">
+    <ng-template [cdkPortalOutlet]="component"></ng-template>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+@import "src/assets/scss/variables";
+:host {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    .card-item {
+        width: 297px;
+        height: 293px;
+        padding: 25px;
+        text-align: center;
+        border: 1px solid #ccc;
+        background-color: map-get($toro-palette, 12);
+    }
+    h4 {
+        margin: 0 0 7px;
+    }
+    .module-logo {
+        width: 50px;
+    }
+    .card-content {
+        margin: 25px;
+        display: inline-flex;
+        align-items: center;
+    }
+    .mat-raised-button {
+        min-width: 50px;
+        margin: 5px;
+        color: map-get($toro-palette, 1);
+        background-color: map-get($toro-palette, 4);
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .text-exp {
+        font-size: 14px;
+        color: blueviolet;
+        font-weight: 900;
+    }
+    .bold {
+        font-weight: 900 !important;
+    }
+    .wrap {
+        width: 100%;
+        min-height: 308px;
+        border-radius: 4px;
+        background-color: map-get($toro-palette, 6);
+        overflow: hidden;
+        display: inline-flex;
+        flex-direction: column;
+        .header {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: map-get($toro-palette, 6);
+            .title {
+                color: map-get($toro-palette, 1);
+                width: 100%;
+                color: map-get($toro-palette, 12);
+                text-align: center;
+                text-transform: uppercase;
+            }
+        }
+    }
+}

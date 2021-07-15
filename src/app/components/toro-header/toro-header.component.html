@@ -1,0 +1,7 @@
+<p class="title" *ngIf="price">
+    <span class="badge badge-primary">{{headerTitle}} </span>
+    <span> {{ amount | currency:'BRL':true }}</span>
+</p>
+<p class="title" *ngIf="!price"> <span class="badge badge-primary">{{headerTitle}} </span>
+    <span> {{ amount}} </span>
+</p>

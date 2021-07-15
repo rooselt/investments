@@ -1,0 +1,94 @@
+<div class="pagination-wrap" #root>
+
+    <div class="header reverse" *ngIf="reverse" [ngClass]="{'displayNone': disabled}">
+        <div class="buttons">
+            <button mat-raised-button [@fadeIn] *ngIf="!error && !model.loading && mobile && model.disableLazyLoad && currentPageLeft > 0" class="load-more" (click)="goToPage(currentPageLeft - 1)" color="primary">Ver mais</button>
+
+            <button [@fadeIn] *ngIf="error" mat-raised-button color="primary" (click)="refresh()">Tentar novamente <mat-icon>refresh</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <div class="header" *ngIf="!firstLoad && (model.perPageOptions && model.orderOptions) && !model.hideOptionsHeader" [ngClass]="{'displayNone': disabled}">
+        <div class="header-page" *ngIf="(model.headerPerPage && !mobile)">
+            <span>Exibir</span>
+            <mat-form-field appearance="outline" *ngIf="model.perPage">
+                <mat-select [(value)]="perPage">
+                    <mat-option *ngFor="let option of perPageOptions" [value]="option">{{option}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <span> itens de {{itemsCount}}</span>
+        </div>
+
+        <div class="header-wrap">
+            <div class="header-nav" *ngIf="model.headerPagination && !mobile">
+                <button class="mat-paginator-navigation-next mat-icon-button" mat-icon-button="" type="button" [disabled]="model.loading || !paginator.hasPreviousPage()" (click)="paginator.firstPage()">
+                    <span class="mat-button-wrapper">
+                        <svg class="mat-paginator-icon" focusable="false" viewBox="0 0 24 24">
+                            <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"></path>
+                        </svg>
+                    </span>
+                </button>
+                <button class="mat-paginator-navigation-next mat-icon-button" mat-icon-button="" type="button" [disabled]="model.loading || !paginator.hasPreviousPage()" (click)="paginator.previousPage()">
+                    <span class="mat-button-wrapper">
+                        <svg class="mat-paginator-icon" focusable="false" viewBox="0 0 24 24">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                        </svg>
+                    </span>
+                </button>
+                <button class="mat-paginator-navigation-next mat-icon-button" mat-icon-button="" type="button" [disabled]="model.loading || !paginator.hasNextPage()" (click)="paginator.nextPage()">
+                    <span class="mat-button-wrapper">
+                        <svg class="mat-paginator-icon" focusable="false" viewBox="0 0 24 24">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                        </svg>
+                    </span>
+                </button>
+                <button class="mat-paginator-navigation-next mat-icon-button" mat-icon-button="" type="button" [disabled]="model.loading || !paginator.hasNextPage()" (click)="paginator.lastPage()">
+                    <span class="mat-button-wrapper">
+                        <svg class="mat-paginator-icon" focusable="false" viewBox="0 0 24 24">
+                            <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+
+            <mat-form-field class="order-by" appearance="outline" *ngIf="model.orderOptions">
+                <mat-label>Ordenar por</mat-label>
+                <mat-select [(value)]="order">
+                    <mat-option *ngFor="let option of model.orderOptions" [value]="option.value">{{option.label}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </div>
+
+    <div class="content">
+
+        <ng-content *ngIf="error || model.loading || firstLoad || items.length > 0; else noResults"></ng-content>
+
+        <ng-template #noResults>
+            <toro-alert [show]="items.length == 0" type="warn" text="Não existem registros para serem exibidos"></toro-alert>
+        </ng-template>
+    </div>
+
+    <div class="footer mat-elevation-z2" [ngClass]="{'scroll': mobile || model.alwaysScroll, 'lastItem': currentPage ==  totalPages - 1 && (mobile || model.alwaysScroll), 'displayNone': disabled}">
+
+        <div class="loader-wrap">
+            <mat-progress-spinner [@fadeIn] *ngIf="model.loading && !error" mode="indeterminate" [diameter]="36" class="alignCenter"></mat-progress-spinner>
+        </div>
+
+        <div class="buttons">
+            <button mat-raised-button [@fadeIn] *ngIf="!error && !model.loading && mobile && model.disableLazyLoad && currentPage < totalPages - 1" class="load-more" (click)="goToPage(currentPage + 1)" color="primary">
+                    Ver mais
+            </button>
+
+            <button [@fadeIn] *ngIf="error" mat-raised-button color="primary" (click)="refresh()">
+                Tentar novamente <mat-icon>refresh</mat-icon>
+            </button>
+        </div>
+
+        <mat-paginator paginator [hidden]="mobile || model.alwaysScroll" [ngClass]="{'disabled' : model.loading}" [length]="itemsCount" [pageSize]="perPage" [pageSizeOptions]="perPageOptions" [pageIndex]="currentPage" (page)="perPage = $event.pageSize; goToPage($event.pageIndex)"
+            showFirstLastButtons="true">
+        </mat-paginator>
+    </div>
+</div>

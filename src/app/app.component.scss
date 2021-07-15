@@ -1,0 +1,12 @@
+@import "src/assets/scss/variables";
+:host {
+    .bg-dark {
+        background-color: map-get($toro-palette, 7) !important;
+    }
+    .bg-light {
+        background-color: map-get($toro-palette, 1) !important;
+    }
+    .navbar {
+        padding-left: 7rem
+    }
+}

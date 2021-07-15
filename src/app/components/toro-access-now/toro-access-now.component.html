@@ -1,0 +1,7 @@
+<div class="wrap" [ngStyle]="{'background-image': 'linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('+accessImage+')'}">
+    <h2><strong [innerHTML]="accessTitle"></strong></h2>
+
+    <div class="actions">
+        <button mat-raised-button [ngClass]="{'disabled' : item.disabled}" *ngFor="let item of accessActionList" (click)="item.action()">{{item.name}}</button>
+    </div>
+</div>

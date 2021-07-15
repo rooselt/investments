@@ -1,0 +1,42 @@
+{
+    "amount": 2020,
+    "bank": "352",
+    "account": "1212-5",
+    "userPosition": {
+        "checkingAccountAmount": "234.00",
+        "positions": [{
+                "symbol": "PETR4",
+                "amount": 2,
+                "currentPrice": "28.44"
+            },
+            {
+                "symbol": "SANB11",
+                "amount": 3,
+                "currentPrice": "40.77"
+            }
+        ],
+        "consolidated": "413.19"
+    },
+    "trends": [{
+            "symbol": "PETR4",
+            "currentPrice": "28.44"
+        },
+        {
+            "symbol": "MGLU3",
+            "currentPrice": 25.91
+        },
+        {
+            "symbol": "VVAR3",
+            "currentPrice": "25.91"
+        },
+        {
+            "symbol": "SANB11",
+            "currentPrice": "40.77"
+        },
+        {
+            "symbol": "TORO4",
+            "currentPrice": "115.98"
+        }
+
+    ]
+}

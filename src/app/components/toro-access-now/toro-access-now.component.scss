@@ -1,0 +1,44 @@
+@import "src/assets/scss/variables";
+:host {
+    display: block;
+    .wrap {
+        min-height: 192px;
+        border-radius: 4px;
+        padding: 20px;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        background-color: map-get($toro-palette, 1);
+        h2 {
+            color: map-get($toro-palette, 1);
+            margin-bottom: 20px !important;
+            font-size: 1.875rem;
+        }
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -5px;
+            margin-right: -5px;
+            .mat-raised-button {
+                min-width: 209px;
+                margin: 5px;
+                color: map-get($toro-palette, 1);
+                background-color: map-get($toro-palette, 4);
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+            .disabled {
+                opacity: .4;
+                cursor: default !important;
+                pointer-events: none;
+            }
+        }
+    }
+}

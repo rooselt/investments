@@ -1,0 +1,25 @@
+<div class="wrap">
+    <div class="header">
+        <p class="title"><strong>{{listTitle}}</strong></p>
+    </div>
+
+
+    <div class="column-a" *ngIf="listColumnA.length > 0">
+        <div class="card-content" *ngFor="let item of listColumnA">
+            <div class="card-item">
+                <img class="module-logo" src="https://cdn.toroinvestimentos.com.br/corretora/images/quote/WDO.svg" loading="lazy" alt="Logo">
+                <div class="d-flex justify-content-between">
+                    <h4>{{ item.symbol}} -
+                        <span class="bold">{{ item.amount}} UND</span></h4>
+                </div>
+                <h4 class="mt-4 text-uppercase">Preço do ativo e Total</h4>
+                <div class="d-flex">
+                    <h3>{{item.currentPrice | currency:'BRL':true}}</h3>
+                    <span class="text-exp"> * {{ item.amount}} </span>
+                    <h3 class="bold"> = {{ item.currentPrice * item.amount | currency:'BRL':true}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

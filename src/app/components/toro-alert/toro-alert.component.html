@@ -1,0 +1,11 @@
+<div class="alert" [ngClass]="type" *ngIf="show" [@fadeInOut] role="alert">
+
+  <mat-icon class="icon" *ngIf="icon">{{icon}}</mat-icon>
+
+  <p class="text" [innerHTML]="text"></p>
+
+  <button mat-icon-button class="close" *ngIf="close" (click)="hide()" aria-label="Fechar">
+    <mat-icon>close</mat-icon>
+  </button>
+  
+</div>

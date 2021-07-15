@@ -1,0 +1,30 @@
+<div class="wrap">
+    <div class="header">
+        <p class="title"><strong>{{listTitle}}</strong></p>
+    </div>
+
+
+    <div class="column-a">
+        <div class="card-content" *ngFor="let item of listColumnA">
+            <div class="card-item">
+                <img class="module-logo" src="https://cdn.toroinvestimentos.com.br/corretora/images/quote/WDO.svg" loading="lazy" alt="Logo">
+                <div class="d-flex justify-content-between">
+                    <h4>{{ item.symbol}} </h4>
+                </div>
+                <h4 class="text-uppercase">Preço do ativo</h4>
+                <div class="d-flex">
+                    <h3 class="bold"> {{ item.currentPrice | currency:'BRL':true}}</h3>
+                </div>
+                <div>
+                    <h4>Quer saber a tendência?</h4>
+                    <a href="https://www.toroinvestimentos.com.br/bolsa/analise/WDOQ21-cotacao">Ver análise completa</a></div>
+                <div class="d-flex w-100 position-relative">
+                    <div class="d-flex w-100 justify-content-between">
+                        <button mat-raised-button [ngClass]="{'disabled' : item.disabled}" (click)="click(item.id)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

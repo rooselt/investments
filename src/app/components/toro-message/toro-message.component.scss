@@ -1,0 +1,7 @@
+@import "src/assets/scss/variables";
+:host {
+    .mat-success {
+        background-color: map-get($toro-palette, 8);
+        color: map-get($toro-palette, 12);
+    }
+}
